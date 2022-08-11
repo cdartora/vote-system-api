@@ -1,6 +1,9 @@
 package controllers
 
 import (
+	"net/http"
+
+	"example.com/vote-system-api/models"
 	"example.com/vote-system-api/services"
 	"github.com/gin-gonic/gin"
 )
@@ -16,11 +19,22 @@ func New(userservice services.UserService) UserController {
 }
 
 func (uc *UserController) CreateUser(ctx *gin.Context) {
-	ctx.JSON(200, "")
+	var user models.User
+	if err := ctx.ShouldBindJSON(&user); err != nil {
+		ctx.JSON(http.StatusBadRequest, gin.H{"message": err.Error()})
+	}
+	err := uc.UserService.CreateUser(&user)
+	if err != nil {
+		ctx.JSON(http.StatusBadGateway, gin.H{"message": err.Error()})
+		return
+	}
+	ctx.JSON(http.StatusCreated, gin.H{"message": "User created"})
 }
 
 func (uc *UserController) GetUser(ctx *gin.Context) {
-	ctx.JSON(200, "")
+	id := ctx.Param("id")
+	uc.UserService.GetUser(&id)
+
 }
 
 func (uc *UserController) GetAll(ctx *gin.Context) {
