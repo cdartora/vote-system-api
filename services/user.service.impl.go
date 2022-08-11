@@ -4,6 +4,7 @@ import (
 	"context"
 
 	"example.com/vote-system-api/models"
+	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
@@ -21,11 +22,14 @@ func NewUserService(usercollection *mongo.Collection, ctx context.Context) UserS
 
 func (u *UserServiceImpl) CreateUser(user *models.User) error {
 	_, err := u.usercollection.InsertOne(u.ctx, user)
-	return nil
+	return err
 }
 
-func (u *UserServiceImpl) GetUser(name *string) (*models.User, error) {
-	return nil, nil
+func (u *UserServiceImpl) GetUser(id *string) (*models.User, error) {
+	var user *models.User
+	query := bson.D{bson.E{Key: "_id", Value: id}}
+	err := u.usercollection.FindOne(u.ctx, query).Decode(&user)
+	return user, err
 }
 
 func (u *UserServiceImpl) GetAll() ([]*models.User, error) {
