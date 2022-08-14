@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	helper "example.com/vote-system-api/src/helpers"
+	helper "example.com/vote-system-api/helpers"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
 )

@@ -6,8 +6,8 @@ import (
 	"log"
 	"os"
 
-	"example.com/vote-system-api/src/controllers"
-	"example.com/vote-system-api/src/services"
+	"example.com/vote-system-api/controllers"
+	"example.com/vote-system-api/services"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 	"go.mongodb.org/mongo-driver/mongo"

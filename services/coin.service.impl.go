@@ -5,7 +5,7 @@ import (
 	"errors"
 	"fmt"
 
-	"example.com/vote-system-api/src/models"
+	"example.com/vote-system-api/models"
 	uuid "github.com/satori/go.uuid"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
