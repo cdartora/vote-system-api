@@ -4,8 +4,8 @@ import (
 	"context"
 	"errors"
 
-	helper "example.com/vote-system-api/src/helpers"
-	"example.com/vote-system-api/src/models"
+	helper "example.com/vote-system-api/helpers"
+	"example.com/vote-system-api/models"
 	uuid "github.com/satori/go.uuid"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"

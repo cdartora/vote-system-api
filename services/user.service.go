@@ -1,7 +1,7 @@
 package services
 
 import (
-	"example.com/vote-system-api/src/models"
+	"example.com/vote-system-api/models"
 	uuid "github.com/satori/go.uuid"
 )
 

@@ -3,9 +3,9 @@ package controllers
 import (
 	"net/http"
 
-	"example.com/vote-system-api/src/middleware"
-	"example.com/vote-system-api/src/models"
-	"example.com/vote-system-api/src/services"
+	"example.com/vote-system-api/middleware"
+	"example.com/vote-system-api/models"
+	"example.com/vote-system-api/services"
 	"github.com/gin-gonic/gin"
 	uuid "github.com/satori/go.uuid"
 )
