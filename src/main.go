@@ -9,6 +9,7 @@ import (
 	"example.com/vote-system-api/src/controllers"
 	"example.com/vote-system-api/src/services"
 	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.mongodb.org/mongo-driver/mongo/readpref"
@@ -28,10 +29,11 @@ var (
 )
 
 func init() {
+	godotenv.Load(".env")
 	ctx = context.TODO()
 
 	mongodbURI := os.Getenv("MONGODB_URL")
-
+	fmt.Println("mongodbURI", mongodbURI)
 	if mongodbURI == "" {
 		mongodbURI = "mongodb://localhost:27017"
 	}
